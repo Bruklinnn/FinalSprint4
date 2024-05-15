@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
-public class RegistrationTest {
+public class LowerRegistrationTest {
     private WebDriver Driver;
 
     @Before
@@ -25,8 +25,9 @@ public class RegistrationTest {
         OrdersPage registration = new OrdersPage(Driver);
         registration.open();
         WebDriver.Timeouts timeouts = Driver.manage().timeouts().implicitlyWait(Duration.of(2, ChronoUnit.SECONDS));
-        registration.clickUpperOrderButton();
-        registration.WhoIsTheScooterFor("Юрий", "Тихонов", "Ново-садовая", "Бульвар Рокоссовского", "88005553535");
+        registration.ToLowerButton();
+        registration.clickLowerOrderButton();
+        registration.WhoIsTheScooterFor("Иван", "Иванов", "Ивановская", "Бульвар Рокоссовского", "88005553536");
         registration.aboutRent("Thanks");
         String text = Driver.findElement(By.xpath(".//div[@class='Order_ModalHeader__3FDaJ']")).getText();
     }
@@ -37,3 +38,4 @@ public class RegistrationTest {
         Driver.quit();
     }
 }
+

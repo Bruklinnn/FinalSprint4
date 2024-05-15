@@ -19,7 +19,7 @@ public class DropDownListTest {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.of(5, ChronoUnit.SECONDS));
     }
-
+    //Проверка выпадающего списка
     @Test
     public void dropDownList() {
         DropDownList dropDownList = new DropDownList(driver);
