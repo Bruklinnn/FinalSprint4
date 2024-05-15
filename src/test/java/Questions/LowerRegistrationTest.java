@@ -7,9 +7,11 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
+
+
+//тест ловит баг с нижней кнопкой "заказать" кнопка меняет свое название в классе
 
 public class LowerRegistrationTest {
     private WebDriver Driver;
