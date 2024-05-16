@@ -1,13 +1,10 @@
 package MainPage;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-@RunWith(Parameterized.class)
 public class OrdersPage {
     private static final String URL = "https://qa-scooter.praktikum-services.ru/";
 
@@ -15,7 +12,7 @@ public class OrdersPage {
     private final By upperOrderButton = By.xpath(".//button[@class='Button_Button__ra12g']"); //верхняя кнопка заказа
     private final By lowerOrderButton = By.xpath(".//button[@class='.//button[@class='Button_Button__ra12g Button_UltraBig__UU3Lp']"); //нижняя кнопка заказа
     private final By orderButton = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']"); //кнопка заказать
-    private final By yesButton = By.xpath(".//button[text()='Да']"); //кнопка "Да"
+    private final By yesButton = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']"); //кнопка "Да"
     private final By nameField = By.xpath(".//input[@placeholder='* Имя']"); //поле имя
     private final By lastNameField = By.xpath(".//input[@placeholder='* Фамилия']"); //поле Фамилия
     private final By addressField = By.xpath(".//input[@placeholder='* Адрес: куда привезти заказ']"); //поле адрес
@@ -29,6 +26,7 @@ public class OrdersPage {
     private final By colorGrey = By.xpath(".//input[@id='Grey']"); //кнопка выбора серого самоката
     private final By metroList = By.xpath(".//div[@class='select-search__value']"); //клик
     private final By furtherButton = By.xpath(".//button[text()='Далее']"); //кнопка далее
+    private final By theOrderHasBeenFormed = By.xpath(".//div[@class='Order_Text__2broi']");
 
     public void open() {
         driver.get(URL);
@@ -51,8 +49,8 @@ public class OrdersPage {
         driver.findElement(lastNameField).sendKeys(lastName);
     }
 
-    public void setAddress(String address) {
-        driver.findElement(addressField).sendKeys(address);
+    public void setAddress(String adress) {
+        driver.findElement(addressField).sendKeys(adress);
     }
 
     public void clickMetroStation() {
@@ -77,6 +75,9 @@ public class OrdersPage {
 
     public void clickLowerOrderButton() {
         driver.findElement(lowerOrderButton).click();
+    }
+    public void orderHasBeenFormed() {
+        driver.findElement(theOrderHasBeenFormed).isDisplayed();
     }
 
     public void clickOrderButton() {
@@ -118,6 +119,8 @@ public class OrdersPage {
         driver.findElement(furtherButton).click();
     }
 
+
+
     public void WhoIsTheScooterFor(String name, String lastName, String address, String metroStation, String phoneNumber) {
         setName(name);
         setLastName(lastName);
@@ -133,8 +136,6 @@ public class OrdersPage {
         clickRentalPeriod();
         clickColorBlack();
         clickCommentForTheCourier();
-        clickOrderButton();
-        clickYes();
     }
 }
 
