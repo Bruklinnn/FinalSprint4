@@ -55,7 +55,7 @@ public class OrdersTest {
         registration.WhoIsTheScooterFor("Иван", "Иванов", "Ивановская", "Бульвар Рокоссовского", "88005553536");
         registration.aboutRent("Thanks");
         registration.orderHasBeenFormed();
-        String text = Driver.findElement(By.xpath(".//div[@class='Order_Text__2broi']")).getText();
+        String text = Driver.findElement(By.xpath(".//div[@class='Order_Text__2broi']")).getAttribute("innerText");
         System.out.println(text);
     }
 
