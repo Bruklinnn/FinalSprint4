@@ -16,7 +16,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.concurrent.TimeUnit;
 
-
+//тест ловит баг с верхней кнопкой, кнопка "да" не кликабельна
 //тест ловит баг с нижней кнопкой "заказать" кнопка меняет свое название в классе
 
 public class OrdersTest {
